@@ -33,13 +33,13 @@
                 <h:column>
                     <f:facet name="header">Direcciones</f:facet>
                     <p:linkButton outcome="customerAddresses" icon="eye">
-                        <f:param name="id" value="#{item.customerId}"/>
+                        <f:param name="id" value="#{cust.customerId}"/>
                     </p:linkButton>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Editar</f:facet>
                     <p:linkButton outcome="editCustomer" icon="user-edit">
-                        <f:param name="id" value="#{item.customerId}"/>
+                        <f:param name="id" value="#{cust.customerId}"/>
                     </p:linkButton>
                 </h:column>
                 <h:column>
@@ -48,7 +48,7 @@
                                         action="clientlist"
                                         id="commandButtonSubmit"
                                         onclick="location.reload();"
-                                        actionListener="#{customerController.delete( item )}">
+                                        actionListener="#{customerController.delete( cust )}">
                     </p:commandButton>
                 </h:column>
                 
