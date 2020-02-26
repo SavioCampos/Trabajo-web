@@ -1,0 +1,88 @@
+root { 
+  display: block;
+}
+
+.leftAlign {
+  text-align: left;
+}
+
+.rightAlign {
+  text-align: right;
+}
+
+.body{
+    background-image: url("./assets/fondo-clientes1.jpg");
+    background-size: cover;
+    background-color: #0f0c2b;
+    font-family: Arial;
+    box-sizing: border-box;
+}
+
+.bodyaddress{
+    background-image: url("./assets/mapa.png");
+    background-size: cover;
+    background-color: #0f0c2b;
+    font-family: Arial;
+    box-sizing: border-box;
+}
+
+input{
+    border: 0;
+    outline: none;
+    width: 270px;
+}
+
+.btn{
+    border-radius: 3px;
+    display: inline-block;
+    padding: 20px 15px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0, 0, 0,0.3);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.3)
+}
+
+.btn-green{
+    color: white;
+    background-color: #3CC93F;
+}
+
+.btn-green:active{
+    background-color: #29962A
+}
+
+.btn-green:hover{
+    background-color: #37B839
+}
+
+form{
+    background-color: white;
+    margin: 0 auto;
+    width: 300px;
+    padding: 20px;
+    border-radius: 3px;
+    font-size: 0.8em
+}
+
+.field{
+    border: solid 1px #999;
+    padding: 10px;
+    width: 270px;
+}
+
+.field:focus{
+    border-color: #3495eb;
+}
+
+.field:hover{
+    border-color: #6db9fc;
+}
+
+.center-content{
+    text-align: center;
+}
+
+.picker{
+    border: solid 1px #999;
+    padding: 10px;
+    width: 292px;
+}

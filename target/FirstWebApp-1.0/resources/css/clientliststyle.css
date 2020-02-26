@@ -1,0 +1,18 @@
+.clientTable{
+    background-color: #360069;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+    border-bottom: solid 5px;
+}
+
+.column{
+    background-color: #360069;
+    padding: 20px;
+}
+
+.thead{
+    background-color: #360069;
+    border-bottom: solid 5px black;
+    color: white;
+}
