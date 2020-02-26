@@ -1,18 +1,27 @@
 .clientTable{
-    background-color: #360069;
+    background-color: white;
     text-align: left;
     border-collapse: collapse;
     width: 100%;
     border-bottom: solid 5px;
+    border: solid 1px black;
 }
 
 .column{
-    background-color: #360069;
     padding: 20px;
 }
 
 .thead{
-    background-color: #360069;
     border-bottom: solid 5px black;
+    color: white;
+    background-color: #142b69   ;
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+}
+
+tr:hover{
+    background-color: #142b69;
     color: white;
 }
