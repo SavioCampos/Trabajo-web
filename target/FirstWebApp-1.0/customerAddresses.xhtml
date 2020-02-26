@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Enter Customer Data</title>
+    </h:head>
+    <h:body style="padding: 32px; background-color: #ffffff;">
+        <h:form>
+            <div>
+                <h1 name="#{addressController.getAddressesCustomer()}">#{addressController.customer.firstName} #{addressController.customer.lastName}</h1>
+                <p:dataTable value="#{addressController.getAddressesCustomer()}" var="item">
+                    <p:column headerText="Tipo de dirección"><h:outputText value="#{item.addressType}" /></p:column>
+                    <p:column headerText="Primera dirección"><h:outputText value="#{item.addressLine1}" /></p:column>
+                    <p:column headerText="Segunda dirección"><h:outputText value="#{item.addressLine2}" /></p:column>
+                    <p:column headerText="Ciudad"><h:outputText value="#{item.city}" /></p:column>
+                    <p:column headerText="Editar">
+                        <p:linkButton outcome="editAddress" icon="eye">
+                            <f:param name="id" value="#{item.addressId}"/>
+                        </p:linkButton>
+                    </p:column>
+                    <p:column headerText="Borrar">
+                        <p:linkButton outcome="customerAddresses" icon="eye">
+                            <f:param name="id" value="#{item.customerId.customerId}"/>
+                        </p:linkButton>
+                    </p:column>
+                </p:dataTable>
+                
+                <br></br>
+                
+                <p:button outcome="addresses" value="Agregar" icon="pi pi-star" style="margin-right:20px;">
+                </p:button>
+                
+            </div>
+        </h:form>
+    </h:body>
+</html>

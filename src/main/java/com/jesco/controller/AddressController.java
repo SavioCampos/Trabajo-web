@@ -9,6 +9,7 @@ import com.jesco.model.ejb.AddressFacadeLocal;
 import com.jesco.model.ejb.CustomerFacadeLocal;
 import com.jesco.model.entities.Address;
 import com.jesco.model.entities.Customer;
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 import javax.annotation.PostConstruct;
@@ -74,9 +75,6 @@ public class AddressController extends HttpServlet {
         addressFacade.create(address);
     }
 
-    
-
-/*
     public static String getRequestUrl() {
         String valorBuscado = "id=";
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
@@ -89,16 +87,11 @@ public class AddressController extends HttpServlet {
         return idCustomer;
     }
 
-    public String getAddressesCustomer() {
-//        String id = getRequestUrl();
-//        Customer customerx = customerFacade.find("dc994f8c-b2a1-4a21-bedf-0f33b891e189");
-        List<Customer> listaCustomer = customerFacade.findAll();
-        return "hola";
-
-//        String id = getRequestUrl();
-//        List<Address> listAddress = addressFacade.findByCustomerId(id);
-//        return listAddress;
+    public Collection<Address> getAddressesCustomer() {
+        String id = getRequestUrl();
+        System.out.println(id);
+        this.customer = customerFacade.find(id);
+        return this.customer.getAddressCollection();
     }
-
-*/
+    
 }
