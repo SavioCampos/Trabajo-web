@@ -14,28 +14,50 @@
         <h:outputStylesheet name="css/style.css"/>
         <h:form>
             <div>
-                <h1 name="#{addressController.getAddressesCustomer()}">#{addressController.customer.firstName} #{addressController.customer.lastName}</h1>
-                <p:dataTable value="#{addressController.getAddressesCustomer()}" var="item">
-                    <p:column headerText="Tipo de dirección"><h:outputText value="#{item.addressType}" /></p:column>
-                    <p:column headerText="Primera dirección"><h:outputText value="#{item.addressLine1}" /></p:column>
-                    <p:column headerText="Segunda dirección"><h:outputText value="#{item.addressLine2}" /></p:column>
-                    <p:column headerText="Ciudad"><h:outputText value="#{item.city}" /></p:column>
-                    <p:column headerText="Editar">
-                        <p:linkButton outcome="editAddress" icon="eye">
-                            <f:param name="id" value="#{item.addressId}"/>
-                        </p:linkButton>
-                    </p:column>
-                    <p:column headerText="Borrar">
-                        <p:linkButton outcome="customerAddresses" icon="eye">
-                            <f:param name="id" value="#{item.customerId.customerId}"/>
-                        </p:linkButton>
-                    </p:column>
-                </p:dataTable>
+                <h1>#{addressController.customer.firstName} #{addressController.customer.lastName}</h1>
+                
+                <h:dataTable    value="#{addressController.customer.addressCollection}" var="addr"
+                                styleClass="clientTable"
+                                headerClass="thead"
+                                rowClasses="column">
+                    <h:column>
+                        <f:facet name="header">Tipo dirección</f:facet>
+                        #{addr.addressType}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Primera dirección</f:facet>
+                        #{addr.addressLine1}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Segunda dirección</f:facet>
+                        #{addr.addressLine2}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Ciudad</f:facet>
+                        #{addr.city}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Editar</f:facet>
+                        <h:commandButton value="O" action="#{addressController.changeAddressEdit( addr )}">
+                        </h:commandButton>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Borrar</f:facet>
+                        <h:commandButton    value="X" 
+                                            action="clientlist"
+                                            id="commandButtonSubmit"
+                                            onclick="location.reload();"
+                                            actionListener="#{addressController.delete( addr )}">
+                        </h:commandButton>
+                    </h:column>
+
+                </h:dataTable>
+                
                 
                 <br></br>
                 
-                <p:button outcome="index" value="Agregar" icon="pi pi-star" style="margin-right:20px;">
-                </p:button>
+                <h:button outcome="addresses" value="Agregar" style="margin-right:20px;">
+                </h:button>
                 
             </div>
         </h:form>
