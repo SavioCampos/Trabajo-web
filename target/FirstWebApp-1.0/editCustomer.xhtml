@@ -7,45 +7,49 @@
     <h:head>
         <title>Enter Customer Data</title>
     </h:head>
-    <h:body>
+    <h:body  class="body">
         <h:outputStylesheet library="css" name="styles.css"/>
         <div name="#{customerController.getCustomerById()}">
             <h:form id="customerForm">
+                <p class="center-content">Edite su cliente:</p>
                 <h:inputHidden value="#{customerController.customer.customerId}" id="hiddenField" />
                 <h:messages/>
-                <h:panelGrid columns="2"
-                             columnClasses="rightAlign,leftAlign">
+                <h:panelGrid columns="1">
                     <h:outputLabel for="firstName" value="First Name:">
                     </h:outputLabel>
-                    <h:inputText id="firstName"
-                                 label="First Name"
-                                 value="#{customerController.customer.firstName}"
-                                 required="true">
+                    <h:inputText    id="firstName"
+                                    class="field"
+                                    label="First Name"
+                                    value="#{customerController.customer.firstName}"
+                                    required="true">
                         <f:validateLength minimum="2" maximum="30">
                         </f:validateLength>
                     </h:inputText>
                     <h:outputLabel for="lastName" value="Last Name:">
                     </h:outputLabel>
-                    <h:inputText id="lastName"
-                                 label="Last Name"
-                                 value="#{customerController.customer.lastName}"
-                                 required="true">
+                    <h:inputText    id="lastName"
+                                    class="field"
+                                    label="Last Name"
+                                    value="#{customerController.customer.lastName}"
+                                    required="true">
                         <f:validateLength minimum="2" maximum="30">
                         </f:validateLength>
                     </h:inputText>
                     <h:outputLabel for="email" value="Email:">
                     </h:outputLabel>
-                    <h:inputText id="email" 
-                                 label="Email" 
-                                 value="#{customerController.customer.email}">
+                    <h:inputText    id="email" 
+                                    class="field"
+                                    label="Email" 
+                                    value="#{customerController.customer.email}">
                         <f:validateLength minimum="3" maximum="30">
                         </f:validateLength>
                     </h:inputText>
-                    <h:panelGroup></h:panelGroup>
+                </h:panelGrid>
+                <p class="center-content"> 
                     <h:commandButton id="commandButtonSubmit" value="Save" action="clientlist"
                                      actionListener="#{customerController.editSave()}">
                     </h:commandButton>
-                </h:panelGrid>
+                </p>
             </h:form>
         </div>
     </h:body>
