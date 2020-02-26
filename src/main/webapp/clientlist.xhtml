@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui"
       >
     <h:head>
-        <h:outputStylesheet name="css/styles.css"/>
+        <h:outputStylesheet library="css" name="clientliststyle.css"/>
         <title>Enter Customer Data</title>
     </h:head>
     <h:body style="padding: 32px; background-color: #ffffff;">
@@ -16,7 +16,7 @@
             <h:dataTable value="#{customerController.getAllCustomer()}" var="cust"
                 styleClass="clientTable"
                 headerClass="thead"
-                rowClasses="thead">
+                rowClasses="column">
                 <h:column>
                     <f:facet name="header">Nombre</f:facet>
                     #{cust.firstName}
@@ -29,6 +29,29 @@
                     <f:facet name="header">Email</f:facet>
                     #{cust.email}
     		</h:column>
+                
+                <h:column>
+                    <f:facet name="header">Direcciones</f:facet>
+                    <p:linkButton outcome="customerAddresses" icon="eye">
+                        <f:param name="id" value="#{item.customerId}"/>
+                    </p:linkButton>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Editar</f:facet>
+                    <p:linkButton outcome="editCustomer" icon="user-edit">
+                        <f:param name="id" value="#{item.customerId}"/>
+                    </p:linkButton>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Borrar</f:facet>
+                    <p:commandButton    value="X" 
+                                        action="clientlist"
+                                        id="commandButtonSubmit"
+                                        onclick="location.reload();"
+                                        actionListener="#{customerController.delete( item )}">
+                    </p:commandButton>
+                </h:column>
+                
             </h:dataTable>
         </h:form>
     </h:body>

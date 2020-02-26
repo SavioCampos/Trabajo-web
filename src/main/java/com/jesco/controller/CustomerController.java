@@ -52,7 +52,8 @@ public class CustomerController {
     }
 
     public Collection<Customer> getAllCustomer() {
-        return customerFacade.findAll();
+        Collection<Customer> listaCustomer = customerFacade.findAll();
+        return listaCustomer;
     }
     
     public static String getRequestUrl() {
@@ -67,12 +68,25 @@ public class CustomerController {
         return idCustomer;
     }
     
-    public Collection<Address>  getAddressesCustomer() {
+    public Collection<Address> getAddressesCustomer() {
         String id = getRequestUrl();
         this.customer = customerFacade.find(id);
-        Collection<Address> coleccionDirecciones = this.customer.getAddressCollection();
-        
-        return coleccionDirecciones;
+        return this.customer.getAddressCollection();
+    }
+    
+    public Customer getCustomerById(){
+        String id = getRequestUrl();
+        this.customer = customerFacade.find(id);
+        return this.customer;
+    }
+    
+    public void editSave(){
+        customerFacade.edit(this.customer);
+    }
+    
+    public String delete(Customer customer){
+        customerFacade.remove(customer);
+        return "clientlist";
     }
 
 }
