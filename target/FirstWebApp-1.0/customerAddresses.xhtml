@@ -11,6 +11,7 @@
         <title>Enter Customer Data</title>
     </h:head>
     <h:body style="padding: 32px; background-color: #ffffff;">
+        <h:outputStylesheet name="css/style.css"/>
         <h:form>
             <div>
                 <h1 name="#{addressController.getAddressesCustomer()}">#{addressController.customer.firstName} #{addressController.customer.lastName}</h1>
@@ -33,7 +34,7 @@
                 
                 <br></br>
                 
-                <p:button outcome="addresses" value="Agregar" icon="pi pi-star" style="margin-right:20px;">
+                <p:button outcome="index" value="Agregar" icon="pi pi-star" style="margin-right:20px;">
                 </p:button>
                 
             </div>
