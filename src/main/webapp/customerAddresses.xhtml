@@ -44,10 +44,8 @@
                     <h:column>
                         <f:facet name="header">Borrar</f:facet>
                         <h:commandButton    value="X" 
-                                            action="clientlist"
-                                            id="commandButtonSubmit"
-                                            onclick="location.reload();"
-                                            actionListener="#{addressController.delete( addr )}">
+                                            action="#{addressController.delete( addr )}"
+                                            id="commandButtonSubmit">
                         </h:commandButton>
                     </h:column>
 

@@ -92,7 +92,8 @@ public class AddressController extends HttpServlet {
     }
     
     public String changeCustomerAddress( Customer cust ){
-        this.customer = cust;
+        System.out.println(cust);
+        this.customer = customerFacade.find(cust.getCustomerId());
         return "customerAddresses";
     }
     
@@ -100,7 +101,8 @@ public class AddressController extends HttpServlet {
         return "editAddress";
     }
     
-    public void delete (Address addr){
+    public String delete (Address addr){
+        return "customerAddresses?faces-redirect=true";
     }
     
 }

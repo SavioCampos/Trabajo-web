@@ -87,7 +87,8 @@ public class CustomerController {
     
     public String delete(Customer customer){
         customerFacade.remove(customer);
-        return "clientlist";
+        customer = null;
+        return "clientlist?faces-redirect=true";
     }
     
     public String changeCustomerEdit( Customer cust ){
