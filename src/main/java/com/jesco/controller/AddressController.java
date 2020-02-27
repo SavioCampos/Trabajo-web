@@ -20,6 +20,7 @@ import javax.inject.Named;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
+
 /**
  *
  * @author sandoval
@@ -100,11 +101,7 @@ public class AddressController extends HttpServlet {
     public String delete (Address addr){
         return "customerAddresses?faces-redirect=true";
     }
-    
-//    public List<Address> findById(){
-//        TypedQuery<Address> query = em.createNamedQuery("Address.findByAddressId", Address.class);
-//        List<Address> results = query.getResultList();
-//        System.out.println(results);
-//        return results;
-//    }
+    public Collection<Address> getAllAddress() {
+        return addressFacade.findAll();
+    }
 }

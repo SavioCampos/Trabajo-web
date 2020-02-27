@@ -11,7 +11,7 @@
         <h:outputStylesheet library="css" name="clientliststyle.css"/>
         <title>Enter Customer Data</title>
     </h:head>
-    <h:body style="padding: 32px; background-color: #ffffff;">
+    <h:body class="body">
         <h:form>
             <h:dataTable value="#{customerController.getAllCustomer()}" var="cust"
                 styleClass="clientTable"
@@ -30,17 +30,17 @@
                     #{cust.email}
     		</h:column>
                 
-                <h:column>
+                <h:column class="smallcol">
                     <f:facet name="header">Direcciones</f:facet>
                     <h:commandButton value="O" action="#{addressController.changeCustomerAddress(cust)}">
                     </h:commandButton>
                 </h:column>
-                <h:column>
+                <h:column class="smallcol">
                     <f:facet name="header">Editar</f:facet>
                     <h:commandButton value="O" action="#{customerController.changeCustomerEdit(cust)}">
                     </h:commandButton>
                 </h:column>
-                <h:column>
+                <h:column class="smallcol">
                     <f:facet name="header">Borrar</f:facet>
                     <h:commandButton    value="X"
                                         id="commandButtonSubmit"

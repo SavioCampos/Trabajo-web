@@ -1,18 +1,55 @@
+.body{
+    background-image: url("./assets/fondolista.jpg");
+    background-size: cover;
+    font-family: Arial;
+    box-sizing: border-box;
+    padding: 32px 100px;
+}
+
 .clientTable{
-    background-color: #360069;
     text-align: left;
     border-collapse: collapse;
     width: 100%;
     border-bottom: solid 5px;
+    border: inset 2px black;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.3);
+    font-size: 10px;
 }
 
 .column{
-    background-color: #360069;
     padding: 20px;
 }
 
+.smallcol{
+    padding: 2px 20px;
+    width: 10%;
+}
+
 .thead{
-    background-color: #360069;
-    border-bottom: solid 5px black;
+    border-bottom: solid 3px black;
     color: white;
+    background-color: #142b69;
+}
+
+tr:nth-child(even){
+    background-color: rgba(173, 173, 173, 0.9);
+}
+tr:nth-child(odd){
+    background-color: rgba(255,255,255,0.9);
+}
+
+tr:hover{
+    background-color: #142b69;
+    color: white;
+}
+
+.btn-solid{
+    width: 30px;
+    height: 30px;
+    background-color: #a80000;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0, 0, 0,0.3);
+
 }
