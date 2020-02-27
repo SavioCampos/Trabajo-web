@@ -92,8 +92,7 @@ public class AddressController extends HttpServlet {
     }
     
     public String changeCustomerAddress( Customer cust ){
-        System.out.println(cust);
-        this.customer = customerFacade.find(cust.getCustomerId());
+        this.customer = cust;
         return "customerAddresses";
     }
     
