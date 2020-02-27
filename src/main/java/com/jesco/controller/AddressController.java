@@ -20,6 +20,7 @@ import javax.inject.Named;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
+
 /**
  *
  * @author sandoval
@@ -92,7 +93,6 @@ public class AddressController extends HttpServlet {
     }
     
     public String changeCustomerAddress( Customer cust ){
-        System.out.println(cust);
         this.customer = customerFacade.find(cust.getCustomerId());
         return "customerAddresses";
     }
@@ -105,4 +105,7 @@ public class AddressController extends HttpServlet {
         return "customerAddresses?faces-redirect=true";
     }
     
+    public Collection<Address> getAllAddress() {
+        return addressFacade.findAll();
+    }
 }
