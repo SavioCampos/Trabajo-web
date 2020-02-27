@@ -32,24 +32,20 @@
                 
                 <h:column>
                     <f:facet name="header">Direcciones</f:facet>
-                    <p:linkButton outcome="customerAddresses" icon="eye">
-                        <f:param name="id" value="#{cust.customerId}"/>
-                    </p:linkButton>
+                    <h:commandButton value="O" action="#{addressController.changeCustomerAddress(cust)}">
+                    </h:commandButton>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Editar</f:facet>
-                    <p:linkButton outcome="editCustomer" icon="user-edit">
-                        <f:param name="id" value="#{cust.customerId}"/>
-                    </p:linkButton>
+                    <h:commandButton value="O" action="#{customerController.changeCustomerEdit(cust)}">
+                    </h:commandButton>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Borrar</f:facet>
-                    <p:commandButton    value="X" 
-                                        action="clientlist"
+                    <h:commandButton    value="X"
                                         id="commandButtonSubmit"
-                                        onclick="location.reload();"
-                                        actionListener="#{customerController.delete( cust )}">
-                    </p:commandButton>
+                                        action="#{customerController.delete( cust )}">
+                    </h:commandButton>
                 </h:column>
                 
             </h:dataTable>

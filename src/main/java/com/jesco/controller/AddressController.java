@@ -88,10 +88,21 @@ public class AddressController extends HttpServlet {
     }
 
     public Collection<Address> getAddressesCustomer() {
-        String id = getRequestUrl();
-        System.out.println(id);
-        this.customer = customerFacade.find(id);
         return this.customer.getAddressCollection();
+    }
+    
+    public String changeCustomerAddress( Customer cust ){
+        System.out.println(cust);
+        this.customer = customerFacade.find(cust.getCustomerId());
+        return "customerAddresses";
+    }
+    
+    public String changeAddressEdit( Address addr ){
+        return "editAddress";
+    }
+    
+    public String delete (Address addr){
+        return "customerAddresses?faces-redirect=true";
     }
     
 }

@@ -4,6 +4,7 @@ import com.jesco.model.ejb.AddressFacadeLocal;
 import com.jesco.model.ejb.CustomerFacadeLocal;
 import com.jesco.model.entities.Address;
 import com.jesco.model.entities.Customer;
+import com.jesco.controller.AddressController;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
@@ -86,7 +87,13 @@ public class CustomerController {
     
     public String delete(Customer customer){
         customerFacade.remove(customer);
-        return "clientlist";
+        customer = null;
+        return "clientlist?faces-redirect=true";
+    }
+    
+    public String changeCustomerEdit( Customer cust ){
+        this.customer = cust;
+        return "editCustomer";
     }
 
 }
