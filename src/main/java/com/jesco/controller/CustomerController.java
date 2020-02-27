@@ -69,11 +69,11 @@ public class CustomerController {
         return idCustomer;
     }
     
-    public Collection<Address> getAddressesCustomer() {
-        String id = getRequestUrl();
-        this.customer = customerFacade.find(id);
-        return this.customer.getAddressCollection();
-    }
+//    public Collection<Address> getAddressesCustomer() {
+//        String id = getRequestUrl();
+//        this.customer = customerFacade.find(id);
+//        return this.customer.getAddressCollection();
+//    }
     
     public Customer getCustomerById(){
         String id = getRequestUrl();

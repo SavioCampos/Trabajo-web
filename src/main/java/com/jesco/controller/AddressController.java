@@ -37,6 +37,7 @@ public class AddressController extends HttpServlet {
     private CustomerFacadeLocal customerFacade;
     private Customer customer;
     private String cliente;
+    private List<Address> listaDireccion;
 
     @PostConstruct
     public void init() {
@@ -86,13 +87,8 @@ public class AddressController extends HttpServlet {
         String idCustomer = requestURL.toString().substring(requestURL.toString().indexOf(valorBuscado) + valorBuscado.length());
         return idCustomer;
     }
-
-    public Collection<Address> getAddressesCustomer() {
-        return this.customer.getAddressCollection();
-    }
     
     public String changeCustomerAddress( Customer cust ){
-        System.out.println(cust);
         this.customer = customerFacade.find(cust.getCustomerId());
         return "customerAddresses";
     }
@@ -105,4 +101,10 @@ public class AddressController extends HttpServlet {
         return "customerAddresses?faces-redirect=true";
     }
     
+//    public List<Address> findById(){
+//        TypedQuery<Address> query = em.createNamedQuery("Address.findByAddressId", Address.class);
+//        List<Address> results = query.getResultList();
+//        System.out.println(results);
+//        return results;
+//    }
 }
