@@ -11,12 +11,12 @@
         <title>Enter Customer Data</title>
     </h:head>
     <h:body style="padding: 32px; background-color: #ffffff;">
-        <h:outputStylesheet name="css/style.css"/>
+        <h:outputStylesheet name="css/clientliststyle.css"/>
         <h:form>
             <div>
                 <h1>#{addressController.customer.firstName} #{addressController.customer.lastName}</h1>
                 
-                <h:dataTable    value="#{addressController.customer.addressCollection}" var="addr"
+                <h:dataTable    value="#{addressController.customer.getAddressCollection()}" var="addr"
                                 styleClass="clientTable"
                                 headerClass="thead"
                                 rowClasses="column">
