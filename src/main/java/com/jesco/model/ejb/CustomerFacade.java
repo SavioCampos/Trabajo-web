@@ -1,8 +1,6 @@
 package com.jesco.model.ejb;
 
-import com.jesco.model.entities.Address;
 import com.jesco.model.entities.Customer;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -25,18 +23,16 @@ public class CustomerFacade extends AbstractFacade<Customer> implements Customer
         super(Customer.class);
     }
     
-    public Customer find(String id){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("UnidadCustomer");
+    /*
+    @Override
+    public Customer find(Object id){
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
+        emf.getCache().evictAll();
         EntityManager em = emf.createEntityManager();
-        TypedQuery<Customer> consultaCustomer= em.createNamedQuery("findByCustomerId", Customer.class);
-        consultaCustomer.setParameter("customerId", id);
-        List<Customer> lista= consultaCustomer.getResultList();
-        System.out.println(lista);
-
-        for(Customer a :lista){
-            return a;
-        }
-        return null;
+        TypedQuery<Customer> consultaCliente = em.createNamedQuery("Customer.findByCustomerId", Customer.class);
+        consultaCliente.setParameter("customerId", id);
+        
+        return consultaCliente.getSingleResult();
     }
-    
+    */
 }
