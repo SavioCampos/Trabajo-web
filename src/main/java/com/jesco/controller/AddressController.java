@@ -109,8 +109,7 @@ public class AddressController extends HttpServlet {
     }
     
     public String changeAddressEdit( Address addr ){
-        this.address = addr;
-        return "editAddress?faces-redirect=true";
+        return addr.getAddressId();
     }
     
     public String delete (Address addr){
@@ -121,5 +120,24 @@ public class AddressController extends HttpServlet {
     
     public Collection<Address> getAllAddress() {
         return addressFacade.findAll();
+    }
+    
+    public Address putAddress(){
+        String addr = getRequestUrl();
+        this.address = addressFacade.find(addr);
+        return this.address;
+    }
+    
+    public String edit(){
+        Address addr = addressFacade.find(this.address.getAddressId());
+        this.address.setCustomerId(addr.getCustomerId());
+//        System.out.println(this.address.getAddressId());
+//        System.out.println(this.address.getCustomerId());
+//        System.out.println(this.address.getAddressType());
+//        System.out.println(this.address.getAddressLine1());
+//        System.out.println(this.address.getAddressLine2());
+//        System.out.println(this.address.getCity());
+        addressFacade.edit(this.address);
+        return this.address.getCustomerId().getCustomerId();
     }
 }
