@@ -9,6 +9,7 @@ import com.jesco.model.ejb.AddressFacadeLocal;
 import com.jesco.model.ejb.CustomerFacadeLocal;
 import com.jesco.model.entities.Address;
 import com.jesco.model.entities.Customer;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
@@ -19,6 +20,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Iterator;
 
 
 /**
@@ -29,8 +31,6 @@ import javax.servlet.http.HttpServletRequest;
 @RequestScoped
 public class AddressController extends HttpServlet {
     
-
-
     @EJB   
     private AddressFacadeLocal addressFacade;
     private Address address;
@@ -38,12 +38,13 @@ public class AddressController extends HttpServlet {
     private CustomerFacadeLocal customerFacade;
     private Customer customer;
     private String cliente;
-    private List<Address> listaDireccion;
+    private List<Address> listAddress;
 
     @PostConstruct
     public void init() {
         customer = new Customer();
         address = new Address();
+        listAddress = new ArrayList<Address>();
     }
 
     public Address getAddress() {
@@ -63,12 +64,12 @@ public class AddressController extends HttpServlet {
     }
 
     public String getCliente() {
-      return cliente;
-   } 
+        return cliente;
+    } 
 
-   public void setCliente(String cliente) {
-      this.cliente = cliente;
-   }
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
     
     public void save() {
         address.setAddressId(UUID.randomUUID().toString());
@@ -89,18 +90,35 @@ public class AddressController extends HttpServlet {
         return idCustomer;
     }
     
-    public String changeCustomerAddress( Customer cust ){
-        this.customer = customerFacade.find(cust.getCustomerId());
-        return "customerAddresses";
+    public String changeCustomerAddressReplace( Customer cust ){
+        return "customerAddresses?id=" + cust.getCustomerId() + "&faces-redirect=true";
+    }
+    
+    public List<Address> listAdrressComplete(){
+        String id = getRequestUrl();
+        this.listAddress = addressFacade.findAll();
+        Iterator<Address> it = this.listAddress.iterator();
+        while (it.hasNext()) {
+            Address addr = it.next();
+            if ( !addr.getCustomerId().getCustomerId().equals(id) ) {
+                it.remove();
+            }
+        }
+        this.customer = customerFacade.find(id);
+        return this.listAddress;
     }
     
     public String changeAddressEdit( Address addr ){
-        return "editAddress";
+        this.address = addr;
+        return "editAddress?faces-redirect=true";
     }
     
     public String delete (Address addr){
+        this.address = addr;
+        addressFacade.remove(this.address);
         return "customerAddresses?faces-redirect=true";
     }
+    
     public Collection<Address> getAllAddress() {
         return addressFacade.findAll();
     }

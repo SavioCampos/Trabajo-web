@@ -104,7 +104,6 @@ public class Customer implements Serializable {
 
     @XmlTransient
     public Collection<Address> getAddressCollection() {
-        System.out.println(addressCollection);
         return addressCollection;
     }
 

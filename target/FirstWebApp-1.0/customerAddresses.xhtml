@@ -5,59 +5,55 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
       >
     <h:head>
+        <h:outputStylesheet library="css" name="clientliststyle.css"/>
         <title>Enter Customer Data</title>
     </h:head>
-    <h:body style="padding: 32px; background-color: #ffffff;">
+    <h:body class="body">
         <h:outputStylesheet name="css/style.css"/>
-        <h:form>
-            <div>
-                <h1>#{addressController.customer.firstName} #{addressController.customer.lastName}</h1>
-                
-                <h:dataTable    value="#{addressController.customer.addressCollection}" var="addr"
-                                styleClass="clientTable"
-                                headerClass="thead"
-                                rowClasses="column">
-                    <h:column>
-                        <f:facet name="header">Tipo dirección</f:facet>
-                        #{addr.addressType}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Primera dirección</f:facet>
-                        #{addr.addressLine1}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Segunda dirección</f:facet>
-                        #{addr.addressLine2}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Ciudad</f:facet>
-                        #{addr.city}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Editar</f:facet>
-                        <h:commandButton value="🔧" action="#{addressController.changeAddressEdit( addr )}">
-                        </h:commandButton>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Borrar</f:facet>
-                        <h:commandButton    value="❌" 
-                                            action="#{addressController.delete( addr )}"
-                                            id="commandButtonSubmit">
-                        </h:commandButton>
-                    </h:column>
+        <h:form id="addressForm">
+            <h:dataTable    value="#{addressController.listAdrressComplete()}" var="addr"
+                            styleClass="clientTable"
+                            headerClass="thead"
+                            rowClasses="column">
+                <h:column>
+                    <f:facet name="header">Tipo dirección</f:facet>
+                    #{addr.addressType}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Primera dirección</f:facet>
+                    #{addr.addressLine1}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Segunda dirección</f:facet>
+                    #{addr.addressLine2}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Ciudad</f:facet>
+                    #{addr.city}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Editar</f:facet>
+                    <h:commandButton id="edit" value="🔧" action="#{addressController.changeCustomerAddressReplace( addr )}">
+                    </h:commandButton>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Borrar</f:facet>
+                    <h:commandButton    value="❌" 
+                                        action="#{addressController.delete( addr )}"
+                                        id="commandButtonSubmit">
+                    </h:commandButton>
+                </h:column>
 
-                </h:dataTable>
-                
-                
-                <br></br>
-                
-                <h:button outcome="addresses" value="Agregar" style="margin-right:20px;">
-                </h:button>
-                
-            </div>
+            </h:dataTable>
+
+
+            <br></br>
+
+            <h:button outcome="addresses" value="Agregar" style="margin-right:20px;">
+            </h:button>
+
         </h:form>
     </h:body>
 </html>

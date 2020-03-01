@@ -1,11 +1,11 @@
 com\jesco\model\ejb\AddressFacadeLocal.class
 com\jesco\controller\CustomerController.class
-com\jesco\model\ejb\CustomerFacadeLocal.class
-com\jesco\model\entities\Address.class
 com\jesco\model\entities\Customer.class
-com\jesco\firstwebapp\resources\JavaEE8Resource.class
 com\jesco\model\ejb\AddressFacade.class
 com\jesco\model\ejb\AbstractFacade.class
-com\jesco\model\ejb\CustomerFacade.class
 com\jesco\controller\AddressController.class
+com\jesco\model\ejb\CustomerFacadeLocal.class
+com\jesco\model\entities\Address.class
+com\jesco\firstwebapp\resources\JavaEE8Resource.class
+com\jesco\model\ejb\CustomerFacade.class
 com\jesco\firstwebapp\JAXRSConfiguration.class
