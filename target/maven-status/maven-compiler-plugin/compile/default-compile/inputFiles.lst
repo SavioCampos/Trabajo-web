@@ -1,11 +1,11 @@
-C:\Projects\Trabajo-web\src\main\java\com\jesco\controller\CustomerController.java
-C:\Projects\Trabajo-web\src\main\java\com\jesco\model\ejb\AddressFacadeLocal.java
-C:\Projects\Trabajo-web\src\main\java\com\jesco\model\ejb\AddressFacade.java
-C:\Projects\Trabajo-web\src\main\java\com\jesco\model\ejb\CustomerFacadeLocal.java
-C:\Projects\Trabajo-web\src\main\java\com\jesco\firstwebapp\resources\JavaEE8Resource.java
-C:\Projects\Trabajo-web\src\main\java\com\jesco\model\entities\Address.java
-C:\Projects\Trabajo-web\src\main\java\com\jesco\model\entities\Customer.java
-C:\Projects\Trabajo-web\src\main\java\com\jesco\controller\AddressController.java
-C:\Projects\Trabajo-web\src\main\java\com\jesco\firstwebapp\JAXRSConfiguration.java
-C:\Projects\Trabajo-web\src\main\java\com\jesco\model\ejb\CustomerFacade.java
-C:\Projects\Trabajo-web\src\main\java\com\jesco\model\ejb\AbstractFacade.java
+C:\Users\sak_p\NetBeans Proyects\FirstWebApp\src\main\java\com\jesco\controller\CustomerController.java
+C:\Users\sak_p\NetBeans Proyects\FirstWebApp\src\main\java\com\jesco\model\ejb\AbstractFacade.java
+C:\Users\sak_p\NetBeans Proyects\FirstWebApp\src\main\java\com\jesco\model\ejb\AddressFacade.java
+C:\Users\sak_p\NetBeans Proyects\FirstWebApp\src\main\java\com\jesco\firstwebapp\resources\JavaEE8Resource.java
+C:\Users\sak_p\NetBeans Proyects\FirstWebApp\src\main\java\com\jesco\firstwebapp\JAXRSConfiguration.java
+C:\Users\sak_p\NetBeans Proyects\FirstWebApp\src\main\java\com\jesco\model\ejb\CustomerFacade.java
+C:\Users\sak_p\NetBeans Proyects\FirstWebApp\src\main\java\com\jesco\controller\AddressController.java
+C:\Users\sak_p\NetBeans Proyects\FirstWebApp\src\main\java\com\jesco\model\ejb\AddressFacadeLocal.java
+C:\Users\sak_p\NetBeans Proyects\FirstWebApp\src\main\java\com\jesco\model\entities\Address.java
+C:\Users\sak_p\NetBeans Proyects\FirstWebApp\src\main\java\com\jesco\model\entities\Customer.java
+C:\Users\sak_p\NetBeans Proyects\FirstWebApp\src\main\java\com\jesco\model\ejb\CustomerFacadeLocal.java

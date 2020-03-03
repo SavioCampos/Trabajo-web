@@ -13,6 +13,7 @@
         <title>Enter Customer Data</title>
     </h:head>
     <h:body class="body">
+        <h:form>
             <h:dataTable    value="#{addressController.listAdrressComplete()}" var="addr"
                             styleClass="clientTable"
                             headerClass="thead"
@@ -36,19 +37,18 @@
                 <h:column>
                     <f:facet name="header">Editar</f:facet>
                     <h:commandButton    value="🔧" 
-                    onclick="window.location.href='/Trabajo-web/faces/editAddress.xhtml?id=#{addressController.changeAddressEdit(addr)}'; return false;">
+                    action="#{addressController.changeAddressEdit(addr)}">
                     </h:commandButton>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Borrar</f:facet>
                     <h:commandButton    value="❌" 
-                    onclick="window.location.href='/Trabajo-web/faces/editAddress.xhtml?id=#{addressController.changeAddressEdit(addr)}'; return false;">
+                                        action="#{addressController.delete(addr)}">
                     </h:commandButton>
-                    
                 </h:column>
 
             </h:dataTable>
-
+        </h:form>
             <br></br>
 
             <h:button outcome="addresses" value="Agregar" style="margin-right:20px;">
