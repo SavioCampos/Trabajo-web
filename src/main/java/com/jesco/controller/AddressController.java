@@ -16,6 +16,7 @@ import java.util.UUID;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.http.HttpServlet;
@@ -99,32 +100,24 @@ public class AddressController extends HttpServlet {
     }
     
     public String changeCustomerAddressReplace( Customer cust ){
-        return "customerAddresses?id=" + cust.getCustomerId() + "&faces-redirect=true";
+        this.customer = cust;
+        return "customerAddresses?faces-redirect=true";
     }
     
-    public List<Address> listAdrressComplete(){
-        String id = getRequestUrl();
-        this.listAddress = addressFacade.findAll();
-        Iterator<Address> it = this.listAddress.iterator();
-        while (it.hasNext()) {
-            Address addr = it.next();
-            if ( !addr.getCustomerId().getCustomerId().equals(id) ) {
-                it.remove();
-            }
-        }
-        this.customer = customerFacade.find(id);
-        return this.listAddress;
+    public Collection<Address> listAdrressComplete(){
+        return this.customer.getAddressCollection();
     }
     
     public String changeAddressEdit( Address addr ){
-        return addr.getAddressId();
+        this.address = addr;
+        return "editAddress?faces-redirect=true";
     }
-    
-    public String delete (){
-        String addr = getRequestUrl();
-        this.address = addressFacade.find(addr);
-        addressFacade.remove(this.address);
-        return "customerAddresses?id="+this.address.getCustomerId().getCustomerId()+"faces-redirect=true";
+
+    public void delete(Address addr){
+        String id = this.customer.getCustomerId();
+        addressFacade.remove(addr);
+        this.customer = customerFacade.find(id);
+        System.out.println("Se ha eliminado la direccion:"+ addr.getAddressId());
     }
     
     public Collection<Address> getAllAddress() {
@@ -138,10 +131,8 @@ public class AddressController extends HttpServlet {
     }
     
     public String edit(){
-        Address addr = addressFacade.find(this.address.getAddressId());
-        this.address.setCustomerId(addr.getCustomerId());
         addressFacade.edit(this.address);
-        return this.address.getCustomerId().getCustomerId();
+        return "customerAddresses?faces-redirect=true";
     }
     
     public Collection<Address> collectionAdrressComplete(){

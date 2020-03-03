@@ -13,48 +13,45 @@
         <title>Enter Customer Data</title>
     </h:head>
     <h:body class="body">
-        <h:dataTable    value="#{addressController.collectionAdrressComplete()}" var="addr"
-                        styleClass="clientTable"
-                        headerClass="thead"
-                        rowClasses="column">
-            <h:column>
-                <f:facet name="header">Tipo dirección</f:facet>
-                #{addr.addressType}
-            </h:column>
-            <h:column>
-                <f:facet name="header">Primera dirección</f:facet>
-                #{addr.addressLine1}
-            </h:column>
-            <h:column>
-                <f:facet name="header">Segunda dirección</f:facet>
-                #{addr.addressLine2}
-            </h:column>
-            <h:column>
-                <f:facet name="header">Ciudad</f:facet>
-                #{addr.city}
-            </h:column>
-            <h:column>
-                <f:facet name="header">Editar</f:facet>
-                <h:commandButton    value="🔧" 
-                onclick="window.location.href='./editAddress.xhtml?id=#{addressController.changeAddressEdit(addr)}'; return false;">
-                </h:commandButton>
-            </h:column>
-            <h:column>
-                <f:facet name="header">Borrar</f:facet>
-                <h:form>
-                    <h:commandButton    value="❌"   id="commandButtonSubmit"
-                    onclick="window.location.href='./deleteAddress.xhtml?id=#{addressController.changeAddressEdit(addr)}'; return false;">
+        <h:form>
+            <h:dataTable    value="#{addressController.listAdrressComplete()}" var="addr"
+                            styleClass="clientTable"
+                            headerClass="thead"
+                            rowClasses="column">
+                <h:column>
+                    <f:facet name="header">Tipo dirección</f:facet>
+                    #{addr.addressType}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Primera dirección</f:facet>
+                    #{addr.addressLine1}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Segunda dirección</f:facet>
+                    #{addr.addressLine2}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Ciudad</f:facet>
+                    #{addr.city}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Editar</f:facet>
+                    <h:commandButton    value="🔧" 
+                    action="#{addressController.changeAddressEdit(addr)}">
                     </h:commandButton>
-                </h:form>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Borrar</f:facet>
+                    <h:commandButton    value="❌" 
+                                        action="#{addressController.delete(addr)}">
+                    </h:commandButton>
+                </h:column>
 
-            </h:column>
+            </h:dataTable>
+        </h:form>
+            <br></br>
 
-        </h:dataTable>
-
-        <br></br>
-
-        <h:commandButton    value="Agregar"   id="commandButtonSubmit" style="margin-right:20px;"
-        onclick="window.location.href='./addAddress.xhtml?id=#{addressController.getCustomerById().customerId}'; return false;">
+            <h:commandButton    value="Agregar"   id="commandButtonSubmit" style="margin-right:20px;" action="addAddress">
         </h:commandButton>
         
         

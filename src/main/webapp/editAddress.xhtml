@@ -12,7 +12,7 @@
     </h:head>
     <h:body class="bodyaddress">
         <h:outputStylesheet library="css" name="styles.css"/>
-        <div name="#{addressController.putAddress()}">
+        <div name="#{addressController.getAddress()}">
             <h:form id="customerForm">
                 <h:messages/>
                 <h:panelGrid columns="1">
@@ -69,7 +69,7 @@
                 </h:panelGrid>
                 <p class="center-content"> 
                     <h:commandButton    id = "commandButtonSubmit" value="Editar"
-                                        actionListener="#{addressController.edit()}"
+                                        action="#{addressController.edit()}"
                                         class = "btn btn-green">
                     </h:commandButton>  
                 </p>
