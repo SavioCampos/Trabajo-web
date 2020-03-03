@@ -49,11 +49,12 @@
 
             </h:dataTable>
         </h:form>
-            <br></br>
+        <br></br>
 
-            <h:commandButton    value="Agregar"   id="commandButtonSubmit" style="margin-right:20px;" action="addAddress">
-        </h:commandButton>
-        
+        <h:form id="agregar">
+            <h:commandButton value="Agregar" id="commandButtonSubmit" style="margin-right:20px;" action="#{addressController.addAddress()}">
+            </h:commandButton>
+        </h:form>
         
 
     </h:body>

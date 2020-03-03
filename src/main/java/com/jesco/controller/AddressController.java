@@ -82,9 +82,10 @@ public class AddressController extends HttpServlet {
     
     public void newSave() {
         address.setAddressId(UUID.randomUUID().toString());
-        customer = customerFacade.find(cliente);
-        address.setCustomerId(customer);
+        this.cliente = this.customer.getCustomerId();
+        address.setCustomerId(this.customer);
         addressFacade.create(address);
+        this.customer = customerFacade.find(this.cliente);
     }
 
     public String getRequestUrl() {
@@ -153,5 +154,10 @@ public class AddressController extends HttpServlet {
         this.customer = customerFacade.find(id);
         this.address.setCustomerId(this.customer);
         return this.customer;
+    }
+    
+    public String addAddress(){
+        this.address = new Address();
+        return "addAddress?faces-redirect=true";
     }
 }

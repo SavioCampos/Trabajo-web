@@ -12,66 +12,66 @@
     </h:head>
     <h:body class="bodyaddress">
         <h:outputStylesheet library="css" name="styles.css"/>
-            <div name="#{addressController.getCustomerById()}">
-                <h:form id="customerForm">
-                    <h:messages/>
-                    <h:panelGrid columns="1">
-                        <h:outputLabel for="addressType" value="Tipo de direccion:">
-                        </h:outputLabel>
-                        <h:inputText id="adrressType"
-                                     class="field"
-                                     label="Address Type"
-                                     value="#{addressController.address.addressType}"
-                                     required="true">
-                            <f:validateLength minimum="1" maximum="30">
-                            </f:validateLength>
-                        </h:inputText>
-                        <h:outputLabel for="addressLine1" value="Address Line 1:">
-                        </h:outputLabel>
-                        <h:inputText id="addressLine1"
-                                     class="field"
-                                     label="Address Line 1:"
-                                     value="#{addressController.address.addressLine1}"
-                                     required="true">
-                            <f:validateLength minimum="2" maximum="30">
-                            </f:validateLength>
-                        </h:inputText>
-                        <h:outputLabel for="addressLine1" value="Address Line 2:">
-                        </h:outputLabel>
-                        <h:inputText id="addresLine2"
-                                     class="field"
-                                     label="Address Line 2:"
-                                     value="#{addressController.address.addressLine2}"
-                                     required="true">
-                            <f:validateLength minimum="2" maximum="30">
-                            </f:validateLength>
-                        </h:inputText>
-                        <h:outputLabel for="city" value="Ciudad:">
-                        </h:outputLabel>
-                        <h:inputText id="city"
-                                     class="field"
-                                     label="Ciudad:"
-                                     value="#{addressController.address.city}"
-                                     required="false">
-                            <f:validateLength minimum="1" maximum="120">
-                            </f:validateLength>
-                        </h:inputText>
-                        <h:outputLabel for="Customer" value="Cliente:">
-                        </h:outputLabel>
-                        <h:inputText id="cliente" disabled="true"
-                                     class="field"
-                                     label="Ciudad:"
-                                     value="#{addressController.address.customerId.firstName}"
-                                     required="false">
-                        </h:inputText>
-                    </h:panelGrid>
-                    <p class="center-content"> 
-                        <h:commandButton    id = "commandButtonSubmit" value="Agregar"
-                                            actionListener="#{addressController.newSave()}"
-                                            class = "btn btn-green">
-                        </h:commandButton>  
-                    </p>
-                </h:form>
-            </div>
+        <div>
+            <h:form id="customerForm">
+                <h:messages/>
+                <h:panelGrid columns="1">
+                    <h:outputLabel for="addressType" value="Tipo de direccion:">
+                    </h:outputLabel>
+                    <h:inputText id="adrressType"
+                                 class="field"
+                                 label="Address Type"
+                                 value="#{addressController.address.addressType}"
+                                 required="true">
+                        <f:validateLength minimum="1" maximum="30">
+                        </f:validateLength>
+                    </h:inputText>
+                    <h:outputLabel for="addressLine1" value="Address Line 1:">
+                    </h:outputLabel>
+                    <h:inputText id="addressLine1"
+                                 class="field"
+                                 label="Address Line 1:"
+                                 value="#{addressController.address.addressLine1}"
+                                 required="true">
+                        <f:validateLength minimum="2" maximum="30">
+                        </f:validateLength>
+                    </h:inputText>
+                    <h:outputLabel for="addressLine1" value="Address Line 2:">
+                    </h:outputLabel>
+                    <h:inputText id="addresLine2"
+                                 class="field"
+                                 label="Address Line 2:"
+                                 value="#{addressController.address.addressLine2}"
+                                 required="true">
+                        <f:validateLength minimum="2" maximum="30">
+                        </f:validateLength>
+                    </h:inputText>
+                    <h:outputLabel for="city" value="Ciudad:">
+                    </h:outputLabel>
+                    <h:inputText id="city"
+                                 class="field"
+                                 label="Ciudad:"
+                                 value="#{addressController.address.city}"
+                                 required="false">
+                        <f:validateLength minimum="1" maximum="120">
+                        </f:validateLength>
+                    </h:inputText>
+                    <h:outputLabel for="Customer" value="Cliente:">
+                    </h:outputLabel>
+                    <h:inputText id="cliente" disabled="true"
+                                 class="field"
+                                 label="Ciudad:"
+                                 value="#{addressController.customer.firstName}"
+                                 required="false">
+                    </h:inputText>
+                </h:panelGrid>
+                <p class="center-content"> 
+                    <h:commandButton    id = "commandButtonSubmit" value="Guardar"
+                                        actionListener="#{addressController.newSave()}"
+                                        class = "btn btn-green">
+                    </h:commandButton>  
+                </p>
+            </h:form>
+        </div>
     </h:body>
 </html>
