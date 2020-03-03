@@ -58,6 +58,14 @@
                         <f:validateLength minimum="1" maximum="120">
                         </f:validateLength>
                     </h:inputText>
+                    <h:outputLabel for="Customer" value="Cliente:">
+                    </h:outputLabel>
+                    <h:inputText id="cliente" disabled="true"
+                                 class="field"
+                                 label="Ciudad:"
+                                 value="#{addressController.address.customerId.firstName}"
+                                 required="false">
+                    </h:inputText>
                 </h:panelGrid>
                 <p class="center-content"> 
                     <h:commandButton    id = "commandButtonSubmit" value="Editar"

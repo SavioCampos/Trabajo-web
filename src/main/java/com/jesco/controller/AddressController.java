@@ -21,6 +21,7 @@ import javax.inject.Named;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Iterator;
+import javax.enterprise.context.SessionScoped;
 
 
 /**
@@ -28,7 +29,7 @@ import java.util.Iterator;
  * @author sandoval
  */
 @Named
-@RequestScoped
+@SessionScoped
 public class AddressController extends HttpServlet {
     
     @EJB   
@@ -77,8 +78,15 @@ public class AddressController extends HttpServlet {
         address.setCustomerId(customer);
         addressFacade.create(address);
     }
+    
+    public void newSave() {
+        address.setAddressId(UUID.randomUUID().toString());
+        customer = customerFacade.find(cliente);
+        address.setCustomerId(customer);
+        addressFacade.create(address);
+    }
 
-    public static String getRequestUrl() {
+    public String getRequestUrl() {
         String valorBuscado = "id=";
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         StringBuffer requestURL = request.getRequestURL();
@@ -112,10 +120,11 @@ public class AddressController extends HttpServlet {
         return addr.getAddressId();
     }
     
-    public String delete (Address addr){
-        this.address = addr;
+    public String delete (){
+        String addr = getRequestUrl();
+        this.address = addressFacade.find(addr);
         addressFacade.remove(this.address);
-        return "customerAddresses?faces-redirect=true";
+        return "customerAddresses?id="+this.address.getCustomerId().getCustomerId()+"faces-redirect=true";
     }
     
     public Collection<Address> getAllAddress() {
@@ -131,13 +140,27 @@ public class AddressController extends HttpServlet {
     public String edit(){
         Address addr = addressFacade.find(this.address.getAddressId());
         this.address.setCustomerId(addr.getCustomerId());
-//        System.out.println(this.address.getAddressId());
-//        System.out.println(this.address.getCustomerId());
-//        System.out.println(this.address.getAddressType());
-//        System.out.println(this.address.getAddressLine1());
-//        System.out.println(this.address.getAddressLine2());
-//        System.out.println(this.address.getCity());
         addressFacade.edit(this.address);
         return this.address.getCustomerId().getCustomerId();
+    }
+    
+    public Collection<Address> collectionAdrressComplete(){
+        String id = getRequestUrl();
+        this.customer = customerFacade.find(id);
+        return this.customer.getAddressCollection();
+    }
+    
+    public String changeIdAddressforIdCustomer(){
+        String id = getRequestUrl();
+        Address addr = addressFacade.find(id);
+        return addr.getCustomerId().getCustomerId();
+    }
+    
+    public Customer getCustomerById(){
+        String id = getRequestUrl();
+        this.cliente = id;
+        this.customer = customerFacade.find(id);
+        this.address.setCustomerId(this.customer);
+        return this.customer;
     }
 }
