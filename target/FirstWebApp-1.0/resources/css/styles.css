@@ -2,20 +2,22 @@ root {
   display: block;
 }
 
-.leftAlign {
+.leftAlign{
   text-align: left;
   width: 50%;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   text-align: center;
+  padding: 0;
+  height: 500px;
 }
 
-.rightAlign {
+.rightAlign{
     text-align: right;
     width: 50%;
     background-image: url("#{resource['assets/cardimage.jpg']}");
-    background-size: cover;
-    height: 500px;  
+    background-size:cover;
+    height: 500px;
 }
 
 .body{
@@ -130,13 +132,15 @@ form{
 }
 
 .invisible{
-    background: none;   
+    background: none;  
+    margin: 0;  
+    padding: 0;
 }
 
 .cursiva{
     font-style: italic;
     font-family: Helvetica;
-    font-size: 4em;
+    font-size: 1.8em;
 }
 
 .btn-index{
@@ -147,6 +151,8 @@ form{
     border-radius: 8px;
     margin-bottom: 1em;
     padding: 10px 10px !important;
+    width: 270px !important;
+    height: 45px !important;
 }
 
 .btn-index:active{
@@ -156,5 +162,13 @@ form{
 
 .btn-index:hover{
     background: initial;
-    background-color: #4548f7
+    background-color: #4548f7;
+}
+
+.ancho{
+    width: 100%;
+}
+
+td{
+    min-width: 500px;
 }
