@@ -48,7 +48,10 @@ input{
     padding: 20px 15px;
     text-decoration: none;
     text-shadow: 0 1px 0 rgba(0, 0, 0,0.3);
-    box-shadow: 0 1px 0 rgba(0,0,0,0.3)
+    box-shadow: 0 1px 0 rgba(0,0,0,0.3);
+    width: 470px;
+    height: 70px;
+    font-size: 1em;
 }
 
 .btn-green{
@@ -67,16 +70,19 @@ input{
 form{
     background-color: white;
     margin: 0 auto;
-    width: 300px;
+    width: 500px;
     padding: 20px;
     border-radius: 3px;
-    font-size: 0.8em
+    font-size: 1.3em
 }
 
 .field{
     border: solid 1px #999;
     padding: 10px;
-    width: 270px;
+    width: 470px;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
 }
 
 .field:focus{
@@ -94,7 +100,9 @@ form{
 .picker{
     border: solid 1px #999;
     padding: 10px;
-    width: 292px;
+    width: 493px;
+    height: 52px;
+    font-size: 0.9em;
 }
 
 .bodyindex{

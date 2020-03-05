@@ -23,13 +23,19 @@
 
 .smallcol{
     padding: 2px 20px;
-    width: 10%;
+    width: 15%;
 }
 
 .thead{
     border-bottom: solid 3px black;
     color: white;
     background-color: #142b69;
+    height: 30px;
+}
+
+tr{
+    height: 40px;
+    font-size: 2em;
 }
 
 tr:nth-child(even){
@@ -45,12 +51,19 @@ tr:hover{
 }
 
 .btn-solid{
-    width: 30px;
-    height: 30px;
-    background-color: #a80000;
+    width: 50px !important;
+    height: 40px !important;
     border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     text-shadow: 0 1px 0 rgba(0, 0, 0,0.3);
-
+    font-size: 1.2em;
 }
+
+.btn-red{
+    background-color: #a80000;
+}
+.btn-yellow{
+    background-color: yellow;
+}
+
