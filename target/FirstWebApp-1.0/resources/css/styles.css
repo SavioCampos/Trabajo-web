@@ -15,13 +15,13 @@ root {
 .rightAlign{
     text-align: right;
     width: 50%;
-    background-image: url("#{resource['assets/cardimage.jpg']}");
+    background-image: url("../cardimage.jpg");
     background-size:cover;
     height: 500px;
 }
 
 .body{
-    background-image: url("#{resource['assets/fondo-clientes1.jpg']}");
+    background-image: url("./fondo-clientes1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #0f0c2b;
@@ -30,7 +30,7 @@ root {
 }
 
 .bodyaddress{
-    background-image: url("#{resource['assets/mapa.png']}");
+    background-image: url("./mapa.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #0f0c2b;
@@ -108,7 +108,7 @@ form{
 }
 
 .bodyindex{
-    background-image: url("#{resource['assets/ZUL.jpg']}");
+    background-image:url("../ZUL.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
