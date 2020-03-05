@@ -1,6 +1,7 @@
 .body{
-    background-image: url("./assets/fondolista.jpg");
+    background-image: url("#{resource['assets/fondolista.jpg']}");
     background-size: cover;
+    background-repeat: no-repeat;
     font-family: Arial;
     box-sizing: border-box;
     padding: 32px 100px;

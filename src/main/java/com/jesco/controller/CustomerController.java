@@ -83,7 +83,6 @@ public class CustomerController extends HttpServlet  {
     
     public String delete(Customer customer){
         customerFacade.remove(customer);
-        customer = null;
         return "clientlist?faces-redirect=true";
     }
     
