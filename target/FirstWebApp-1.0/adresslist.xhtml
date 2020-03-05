@@ -12,6 +12,14 @@
         <title>Enter Customer Data</title>
     </h:head>
     <h:body class="body">
+        <div style="padding-bottom: 5%">
+            <h:commandButton value="⬅" style="float: left;font-size: 30px" 
+                             onclick="history.go(-1)"
+                             class="btn-solid"/>
+            <h:commandButton value="🏠" style="float: right;font-size: 30px" 
+                             onclick="window.location='/Trabajo-web/faces/index.xhtml'"
+                             class="btn-solid"/>
+        </div>
         <h:form>
             <h:dataTable value="#{addressController.getAllAddress()}" var="add"
                 styleClass="clientTable"
