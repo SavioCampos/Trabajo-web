@@ -8,17 +8,22 @@
         <h:outputStylesheet name="css/styles.css"/>
     </h:head>
     <h:body class='bodyindex'>   
-    <h:panelGrid class="contenedor" columns="2" columnClasses="rightAlign,leftAlign">
-        <h:panelGrid columns="1" columnClasses="rightAlign,leftAlign" style="border: solid 1px #e1e7e8;">
-            <h3 style="margin-top:0">Clientes</h3>
-            <h:link value="Agregar" outcome="customers"/>
-            <h:link value="Lista de clientes" outcome="clientlist"/>
+    <h:panelGrid cellspacing="0" class="contenedor" columns="2" columnClasses="leftAlign,rightAlign">
+        <h:panelGroup class="cardtext">
+            <h:form class="invisible">
+                <h1 class="cursiva">Clientes</h1>
+                <h:commandButton class="btn btn-index" action="customers" value="Agregar"></h:commandButton>
+            <br></br>
+            <h:commandButton class="btn btn-index" action="clientlist" value="Lista de clientes"></h:commandButton>
+            <h1 class="cursiva">Direcciones</h1>
+            <h:commandButton class="btn btn-index" action="addresses" value="Agregar"></h:commandButton>
+            <br></br>
+            <h:commandButton class="btn btn-index" action="adresslist" value="Lista de direcciones"></h:commandButton>
+            </h:form>
+        </h:panelGroup>
+        <div>
             
-            <h3 style="margin-top:0">Direcciones</h3>
-            <h:link value="Agregar" outcome="addresses"/>
-            <h:link value="Lista de direcciones" outcome="adresslist"/>
-        </h:panelGrid>
-        <h:graphicImage value="src/resources/assets/fondo-clientes1.jpg"></h:graphicImage>
+        </div>
     </h:panelGrid>
     </h:body>
 </html>
