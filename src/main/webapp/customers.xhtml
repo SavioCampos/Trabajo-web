@@ -10,10 +10,7 @@
     <h:body class="body" id="#{customerController.init()}init">
         <h:outputStylesheet library="css" name="styles.css"/>
         <h:form id="customerForm">
-            <h:commandButton value="⬅" 
-                             onclick="history.go(-1); return false;"
-                             class="btn-nav"/>
-            <h:commandButton value="🏠" style="float: right;" 
+            <h:commandButton value="🏠" style="float: left;" 
                              onclick="window.location='./index.xhtml'; return false;"
                              class="btn-nav"/>
             <p class="center-content">Ingrese nuevo cliente:</p>

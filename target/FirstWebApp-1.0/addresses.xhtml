@@ -12,7 +12,10 @@
         <div id="#{addressController.init()}">
             <h:form id="customerForm">
                 <h:messages/>
-                <h:panelGrid columns="1">
+                <h:commandButton value="🏠" style="float: left;" 
+                                 onclick="window.location='./index.xhtml'; return false;"
+                                 class="btn-nav"/>
+                <h:panelGrid columns="1" style="padding-top: 5% ">
                     <h:outputLabel for="addressType" value="Tipo de direccion:">
                     </h:outputLabel>
                     <h:inputText id="adrressType"

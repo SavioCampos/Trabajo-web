@@ -15,6 +15,12 @@
         <div name="#{addressController.getAddress()}">
             <h:form id="customerForm">
                 <h:messages/>
+                <h:commandButton    value="⬅" 
+                                    onclick="window.location='./customerAddresses.xhtml'; return false;"
+                                    class="btn-nav"/>
+                <h:commandButton value="🏠" style="float: right;" 
+                                     onclick="window.location='./index.xhtml'; return false;"
+                                     class="btn-nav"/>
                 <h:panelGrid columns="1">
                     <h:inputHidden id="idAddress"
                                  value="#{addressController.address.addressId}"/>

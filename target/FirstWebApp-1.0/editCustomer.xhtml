@@ -11,6 +11,12 @@
         <h:outputStylesheet library="css" name="styles.css"/>
         <div>
             <h:form id="customerForm">
+                <h:commandButton    value="⬅" 
+                                    onclick="window.location='./clientlist.xhtml'; return false;"
+                                    class="btn-nav"/>
+                <h:commandButton value="🏠" style="float: right;" 
+                                     onclick="window.location='./index.xhtml'; return false;"
+                                     class="btn-nav"/>
                 <p class="center-content">Edite su cliente:</p>
                 <h:inputHidden value="#{customerController.customer.customerId}" id="hiddenField" />
                 <h:messages/>
